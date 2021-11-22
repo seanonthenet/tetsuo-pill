@@ -3,9 +3,9 @@ import SceneComp from "./components/SceneComponent";
 
 function App() {
   return (
-    <div className="App" style={{ display: "flex", flexDirection: "row" }}>
+    <div className="App">
       <SceneComp />
-      <div id="pill" style={{ width: "80%" }}></div>
+      <div id="pill"></div>
     </div>
   );
 }

@@ -65,7 +65,7 @@ const SceneComponent = () => {
       antialias: true,
     });
     Renderer.outputEncoding = THREE.sRGBEncoding;
-    Renderer.setSize((window.innerWidth / 10) * 8, window.innerHeight);
+    Renderer.setSize(window.innerWidth, window.innerHeight);
     document.getElementById("pill").appendChild(Renderer.domElement);
 
     //GLTF loader set up, for loading our object
@@ -153,96 +153,96 @@ const SceneComponent = () => {
       : 0;
   };
 
-  return (
-    <div style={{ width: "20%" }}>
-      {Object.keys(settings).map((key) => {
-        return (
-          <div
-            key={key}
-            style={{ width: "180px", height: "220px", margin: "auto" }}
-          >
-            <h4>{key.toUpperCase()}</h4>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-              }}
-            >
-              <label htmlFor={`${key}-z`}>Intensity</label>
-              <input
-                type="number"
-                id={`${key}-intensity`}
-                value={settings[key].intensity}
-                min="0"
-                max="1"
-                step="0.01"
-                onChange={(e) => {
-                  let value = e.target.value;
-                  updateLightIntensity(key, value);
-                }}
-              />
-              <label htmlFor={`${key}-x`}>X Position</label>
-              <input
-                type="number"
-                id={`${key}-x`}
-                value={settings[key].position.x}
-                onChange={(e) => {
-                  let value = e.target.value;
-                  updateLightPosition(key, "x", value);
-                }}
-                min="-20"
-                max="20"
-                step="0.05"
-              />
-              <label htmlFor={`${key}-y`}>Y Position</label>
-              <input
-                type="number"
-                id={`${key}-y`}
-                value={settings[key].position.y}
-                onChange={(e) => {
-                  let value = e.target.value;
-                  updateLightPosition(key, "y", value);
-                }}
-                min="-20"
-                max="20"
-                step="0.05"
-              />
-              <label htmlFor={`${key}-z`}>Z position</label>
-              <input
-                type="number"
-                id={`${key}-z`}
-                value={settings[key].position.z}
-                onChange={(e) => {
-                  let value = e.target.value;
-                  updateLightPosition(key, "z", value);
-                }}
-                min="-20"
-                max="20"
-                step="0.05"
-              />
-              <label htmlFor={`${key}-toggle`}>{key} active?</label>
-              <input
-                type="checkbox"
-                id={`${key}-toggle`}
-                checked={settings[key].active}
-                onChange={() => toggleLight(key)}
-                min="-20"
-                max="20"
-                step="0.05"
-              />
-            </div>
-          </div>
-        );
-      })}
-      <button
-        style={{ marginTop: "12px" }}
-        onClick={() => console.log(settings)}
-      >
-        Log Settings
-      </button>
-    </div>
-  );
+  return null;
+
+  // <div style={{ width: "20%" }}>
+  //   {Object.keys(settings).map((key) => {
+  //     return (
+  //       <div
+  //         key={key}
+  //         style={{ width: "180px", height: "220px", margin: "auto" }}
+  //       >
+  //         <h4>{key.toUpperCase()}</h4>
+  //         <div
+  //           style={{
+  //             display: "flex",
+  //             flexDirection: "column",
+  //             justifyContent: "space-between",
+  //           }}
+  //         >
+  //           <label htmlFor={`${key}-z`}>Intensity</label>
+  //           <input
+  //             type="number"
+  //             id={`${key}-intensity`}
+  //             value={settings[key].intensity}
+  //             min="0"
+  //             max="1"
+  //             step="0.01"
+  //             onChange={(e) => {
+  //               let value = e.target.value;
+  //               updateLightIntensity(key, value);
+  //             }}
+  //           />
+  //           <label htmlFor={`${key}-x`}>X Position</label>
+  //           <input
+  //             type="number"
+  //             id={`${key}-x`}
+  //             value={settings[key].position.x}
+  //             onChange={(e) => {
+  //               let value = e.target.value;
+  //               updateLightPosition(key, "x", value);
+  //             }}
+  //             min="-20"
+  //             max="20"
+  //             step="0.05"
+  //           />
+  //           <label htmlFor={`${key}-y`}>Y Position</label>
+  //           <input
+  //             type="number"
+  //             id={`${key}-y`}
+  //             value={settings[key].position.y}
+  //             onChange={(e) => {
+  //               let value = e.target.value;
+  //               updateLightPosition(key, "y", value);
+  //             }}
+  //             min="-20"
+  //             max="20"
+  //             step="0.05"
+  //           />
+  //           <label htmlFor={`${key}-z`}>Z position</label>
+  //           <input
+  //             type="number"
+  //             id={`${key}-z`}
+  //             value={settings[key].position.z}
+  //             onChange={(e) => {
+  //               let value = e.target.value;
+  //               updateLightPosition(key, "z", value);
+  //             }}
+  //             min="-20"
+  //             max="20"
+  //             step="0.05"
+  //           />
+  //           <label htmlFor={`${key}-toggle`}>{key} active?</label>
+  //           <input
+  //             type="checkbox"
+  //             id={`${key}-toggle`}
+  //             checked={settings[key].active}
+  //             onChange={() => toggleLight(key)}
+  //             min="-20"
+  //             max="20"
+  //             step="0.05"
+  //           />
+  //         </div>
+  //       </div>
+  //     );
+  //   })}
+  //   <button
+  //     style={{ marginTop: "12px" }}
+  //     onClick={() => console.log(settings)}
+  //   >
+  //     Log Settings
+  //   </button>
+  // </div>
 };
 
 export default SceneComponent;
